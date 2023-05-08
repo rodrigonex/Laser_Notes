@@ -20,8 +20,6 @@ import { Routes } from "./src/routes";
 
 // import Colors
 import COLORS from "./src/styles/theme";
-import { Login } from "./src/screens/Auth/Login";
-import { NotesDetails } from "./src/screens/App/NotesDetails";
 
 export default function App() {
     const [fontsLoaded] = useFonts({
@@ -40,19 +38,15 @@ export default function App() {
 
     return (
         <ThemeProvider theme={COLORS}>
-            <StatusBar style="dark" translucent backgroundColor="transparent" />
-            <View style={styles.container}>
-                <NotesDetails />
-            </View>
+            <NavigationContainer>
+                <StatusBar
+                    style="dark"
+                    translucent
+                    backgroundColor="transparent"
+                />
+
+                <Routes />
+            </NavigationContainer>
         </ThemeProvider>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "#fff",
-        alignItems: "center",
-        justifyContent: "center",
-    },
-});

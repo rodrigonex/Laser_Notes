@@ -2,9 +2,9 @@ import styled from "styled-components/native";
 import { RFValue } from "react-native-responsive-fontsize";
 
 export const Container = styled.View`
-    padding-top: ${RFValue(37)}px;
+    align-items: center;
     height: ${RFValue(400)}px;
-    width: 100%;
+    margin: ${RFValue(40)}px ${RFValue(20)}px 0 ${RFValue(20)}px;
 `;
 
 export const ContainerLogo = styled.Image`
@@ -15,5 +15,3 @@ export const ContainerLogo = styled.Image`
 export const ContainerBody = styled.View`
     width: 100%;
 `;
-
-export const ContainerFooter = styled.View``;

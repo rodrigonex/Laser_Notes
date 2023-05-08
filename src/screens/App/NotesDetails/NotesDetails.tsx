@@ -48,7 +48,7 @@ export const NotesDetails = () => {
                     placeholder="Qual o Procedimento"
                 />
 
-                <TextBody>Nome do Medico:</TextBody>
+                <TextBody>Nome do Medicooo:</TextBody>
                 <Input
                     secureTextEntry={false}
                     autoCapitalize="none"

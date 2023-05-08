@@ -8,7 +8,7 @@ import { Container, Title, Content } from "./style";
 
 interface IButtonProps {
     title: string;
-    onPress: () => void;
+    onPress: any;
     iconName?: keyof typeof AntDesign.glyphMap;
     isLoading?: boolean;
     disable?: boolean;
@@ -18,7 +18,7 @@ interface IButtonProps {
 
 export const Button = ({
     title,
-    onPress = () => {},
+    onPress = async () => {},
     isLoading,
     iconName,
     disable,

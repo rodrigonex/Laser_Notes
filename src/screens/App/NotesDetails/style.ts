@@ -27,3 +27,9 @@ export const TextBody = styled.Text`
     font-size: ${RFValue(18)}px;
     font-family: ${({ theme }) => theme.FONTS.POPPINSBOLD};
 `;
+
+export const ContainerDropDown = styled.View`
+    border-radius: ${RFValue(8)}px;
+    font-family: ${({ theme }) => theme.FONTS.POPPINSLIGHT};
+    background-color: ${({ theme }) => theme.COLORS.GRAY5};
+`;

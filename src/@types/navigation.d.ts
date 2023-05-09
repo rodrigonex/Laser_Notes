@@ -4,6 +4,7 @@ export declare global {
             Login: undefined;
             Home: undefined;
             Notes: undefined;
+            Notes_Continuation: any;
         }
     }
 }

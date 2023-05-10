@@ -12,7 +12,7 @@ interface IButtonProps {
     iconName?: keyof typeof AntDesign.glyphMap;
     isLoading?: boolean;
     disable?: boolean;
-    variant?: "buttonLg" | "buttonSm" | "transparent";
+    variant?: "buttonLg" | "buttonSm" | "transparent" | "buttonExLg";
     style?: TouchableOpacityProps["style"];
 }
 

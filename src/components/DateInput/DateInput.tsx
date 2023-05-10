@@ -4,9 +4,12 @@ import DateField from "react-native-datefield";
 import { Container } from "./style";
 export const DateInput = (props: any) => {
     const { COLORS } = useTheme();
+    const [formatDate, setFormatDate] = useState(props.onDefaultDate);
+
     return (
         <Container>
             <DateField
+                defaultValue={new Date(formatDate)}
                 containerStyle={{
                     height: 50,
                     backgroundColor: COLORS.GRAY5,

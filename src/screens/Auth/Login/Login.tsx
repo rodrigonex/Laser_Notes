@@ -69,7 +69,7 @@ export const Login = () => {
                         variant="transparent"
                     />
                     <Button
-                        variant="buttonSm"
+                        variant="buttonExLg"
                         title="Entrar"
                         onPress={handleSingUp}
                     />

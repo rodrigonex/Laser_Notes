@@ -5,6 +5,7 @@ import { Login } from "../screens/Auth/Login";
 import { NotesDetails } from "../screens/App/NotesDetails";
 import { Home } from "../screens/App/Home";
 import { NotesContinuation } from "../screens/App/NotesContinuation";
+import { Notes_List } from "../screens/App/Notes";
 
 // create the stack routes with the params of the routes
 const Stack = createNativeStackNavigator();
@@ -12,7 +13,7 @@ const Stack = createNativeStackNavigator();
 export const ScreenRoutes = () => {
     return (
         <Stack.Navigator
-            initialRouteName="Notes"
+            initialRouteName="Login"
             screenOptions={{ headerShown: false }}
         >
             <Stack.Screen name="Home" component={Home} />
@@ -22,6 +23,7 @@ export const ScreenRoutes = () => {
                 name="Notes_Continuation"
                 component={NotesContinuation}
             />
+            <Stack.Screen name="Notes_List" component={Notes_List} />
         </Stack.Navigator>
     );
 };

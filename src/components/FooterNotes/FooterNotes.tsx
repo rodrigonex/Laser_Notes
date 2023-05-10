@@ -3,22 +3,33 @@ import { Container } from "./style";
 import { AntDesign } from "@expo/vector-icons";
 import { Button } from "../Button";
 import { useNavigation } from "@react-navigation/native";
+import NotesServices from "../../services/App/Notes/Notes.service";
 
 interface Notes {
     tab: number;
     notes?: any;
+    isUpdate?: any;
 }
 
-export const FooterNotes = ({ tab, notes }: Notes) => {
+export const FooterNotes = ({ tab, notes, isUpdate }: Notes) => {
     const navigation = useNavigation();
+
     const handleNavigationNext = () => {
         if (tab == 1) {
             navigation.navigate("Notes_Continuation", notes);
         } else {
-            //Criar mudança para criar ou alterar
+            const noteService = new NotesServices();
+
+            if (isUpdate) {
+                noteService.update(notes);
+            } else {
+                noteService.create(notes);
+            }
+
             navigation.navigate("Home");
         }
     };
+
     const handleNavigationBack = () => {
         if (tab == 2) {
             navigation.navigate("Notes");

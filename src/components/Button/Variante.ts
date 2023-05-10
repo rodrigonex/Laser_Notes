@@ -5,7 +5,7 @@ interface ButtonStyle {
         backgroundColor: string;
         borderWidth?: number;
         borderColor?: string;
-        width: number;
+        width: number | string;
     };
     title: {
         color: string;
@@ -74,11 +74,38 @@ const buttonLg: ButtonVariante = {
     },
 };
 
+const buttonExLg: ButtonVariante = {
+    enabled: {
+        button: {
+            backgroundColor: theme.COLORS.PURPLE,
+            width: "100%",
+        },
+        title: {
+            color: theme.COLORS.WHITE,
+        },
+        icon: {
+            color: theme.COLORS.WHITE,
+        },
+    },
+    desabled: {
+        button: {
+            backgroundColor: theme.COLORS.GRAY_100,
+            width: "100%",
+        },
+        title: {
+            color: theme.COLORS.WHITE,
+        },
+        icon: {
+            color: theme.COLORS.WHITE,
+        },
+    },
+};
+
 const buttonTransparent: ButtonVariante = {
     enabled: {
         button: {
             backgroundColor: "transparent",
-            width: 129,
+            width: "100%",
         },
         title: {
             color: theme.COLORS.RED1,
@@ -90,7 +117,7 @@ const buttonTransparent: ButtonVariante = {
     desabled: {
         button: {
             backgroundColor: "transparent",
-            width: 129,
+            width: "100%",
         },
         title: {
             color: theme.COLORS.GRAY2,
@@ -105,4 +132,5 @@ export const variantes = {
     buttonSm: buttonSm,
     buttonLg: buttonLg,
     transparent: buttonTransparent,
+    buttonExLg: buttonExLg,
 };

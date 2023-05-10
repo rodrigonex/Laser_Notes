@@ -12,6 +12,7 @@ import {
 } from "./style";
 import { Input } from "../../../components/Input";
 import { FooterNotes } from "../../../components/FooterNotes";
+import { Notes } from "../../../utils/Interfaces/Notes";
 
 export const NotesContinuation = (props: any) => {
     const { COLORS } = useTheme();
@@ -44,12 +45,12 @@ export const NotesContinuation = (props: any) => {
         if (timeLaser.includes(note?.laser)) {
             setNote({ ...note, application_time: parseInt(text) });
         } else {
-            setNote({ ...note, place_application: text });
+            setNote({ ...note, number_shots: parseInt(text) });
         }
     };
 
     useEffect(() => {
-        let laser = "";
+        let laser: string | undefined = "";
         if (note.laser == undefined || note.laser !== laser) {
             laser = note.laser;
             setVisibleSecundaryLaser(true);
@@ -65,7 +66,9 @@ export const NotesContinuation = (props: any) => {
                 <TextBody>Tamanho da anestésico:</TextBody>
                 <ContainerDropDown>
                     <SelectDropdown
-                        defaultValueByIndex={4}
+                        defaultValueByIndex={sizes.indexOf(
+                            note.size_anesthetic
+                        )}
                         data={sizes}
                         dropdownStyle={{
                             backgroundColor: COLORS.GRAY5,
@@ -73,7 +76,6 @@ export const NotesContinuation = (props: any) => {
                         }}
                         onSelect={(selectedItem, index) => {
                             setNote({ ...note, size_anesthetic: sizes[index] });
-                            console.log(selectedItem, index);
                         }}
                         buttonStyle={{
                             width: "100%",
@@ -92,7 +94,7 @@ export const NotesContinuation = (props: any) => {
                 <TextBody>Laser</TextBody>
                 <ContainerDropDown>
                     <SelectDropdown
-                        defaultValueByIndex={12}
+                        defaultValueByIndex={laserList.indexOf(note.laser)}
                         data={laserList}
                         dropdownStyle={{
                             backgroundColor: COLORS.GRAY5,
@@ -104,7 +106,6 @@ export const NotesContinuation = (props: any) => {
                                 laser: laserList[index],
                             });
                             setVisibleSecundaryLaser(false);
-                            console.log(selectedItem, index);
                         }}
                         buttonStyle={{
                             width: "100%",
@@ -134,12 +135,13 @@ export const NotesContinuation = (props: any) => {
                                 ? "Tempo de Aplicação"
                                 : "Quantidade de Disparos"
                         }
-                        onChangeText={handleText}
-                        keyboardType={
-                            timeLaser.includes(note?.laser)
-                                ? "numeric"
-                                : "default"
+                        defaultValue={
+                            note?.laser
+                                ? note.application_time
+                                : note.number_shots
                         }
+                        onChangeText={handleText}
+                        keyboardType="number-pad"
                     />
                 )}
                 <TextBody>Local da Aplicação: </TextBody>
@@ -148,6 +150,10 @@ export const NotesContinuation = (props: any) => {
                     onChangeText={(text) =>
                         setNote({ ...note, place_application: text })
                     }
+                    defaultValue={
+                        note.place_application ? note.place_application : 0
+                    }
+                    keyboardType="default"
                 />
                 <TextBody>Observações: </TextBody>
                 <Input
@@ -155,6 +161,7 @@ export const NotesContinuation = (props: any) => {
                     onChangeText={(text) =>
                         setNote({ ...note, comments: text })
                     }
+                    defaultValue={note.comments ? note.comments : ""}
                 />
             </ContainerBody>
             <FooterNotes tab={2} notes={note} />

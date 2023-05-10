@@ -5,7 +5,7 @@ export const Container = styled.View`
     height: ${RFValue(80)}px;
     flex-direction: row;
     justify-content: space-between;
-    margin-top: ${RFValue(60)}px;
+    margin-top: ${RFValue(30)}px;
     padding-right: ${RFValue(15)}px;
     padding-left: ${RFValue(15)}px;
 `;

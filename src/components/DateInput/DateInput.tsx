@@ -1,49 +1,24 @@
 import React, { useState } from "react";
+import { useTheme } from "styled-components";
+import DateField from "react-native-datefield";
 import { Container } from "./style";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
-import DateTimePicker from "@react-native-community/datetimepicker";
-
 export const DateInput = (props: any) => {
-    const [selectedDate, setSelectedDate] = useState(new Date());
-    const [showDatePicker, setShowDatePicker] = useState(false);
-
-    const handleDateChange = (event: any, date: any) => {
-        setShowDatePicker(false);
-        if (date !== undefined) {
-            setSelectedDate(date);
-        }
-    };
-
-    const showDatePickerModal = () => {
-        setShowDatePicker(true);
-    };
-
+    const { COLORS } = useTheme();
     return (
-        <View style={styles.container}>
-            <Text style={styles.label}>Data selecionada:</Text>
-            <TouchableOpacity onPress={showDatePickerModal}>
-                <Text>{selectedDate.toDateString()}</Text>
-            </TouchableOpacity>
-            {showDatePicker && (
-                <DateTimePicker
-                    value={selectedDate}
-                    mode="date"
-                    display="default"
-                    onChange={handleDateChange}
-                />
-            )}
-        </View>
+        <Container>
+            <DateField
+                containerStyle={{
+                    height: 50,
+                    backgroundColor: COLORS.GRAY5,
+                    width: 150,
+                    marginStart: 25,
+                    paddingEnd: 10,
+                }}
+                labelDate="Dia"
+                labelMonth="Mês"
+                labelYear="Ano"
+                onSubmit={props.changeDate}
+            />
+        </Container>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-    },
-    label: {
-        fontSize: 16,
-        marginBottom: 10,
-    },
-});

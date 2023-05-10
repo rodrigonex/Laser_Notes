@@ -6,12 +6,19 @@ import { useNavigation } from "@react-navigation/native";
 
 interface Notes {
     tab: number;
-    notes: any;
+    notes?: any;
 }
 
 export const FooterNotes = ({ tab, notes }: Notes) => {
     const navigation = useNavigation();
-    const handleNavigationNext = () => {};
+    const handleNavigationNext = () => {
+        if (tab == 1) {
+            navigation.navigate("Notes_Continuation", notes);
+        } else {
+            //Criar mudança para criar ou alterar
+            navigation.navigate("Home");
+        }
+    };
     const handleNavigationBack = () => {
         if (tab == 2) {
             navigation.navigate("Notes");

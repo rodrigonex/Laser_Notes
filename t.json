@@ -1,1 +1,32 @@
-{"access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNjgzNTc3NzY1LCJzdWIiOiI1YTE0OTI3Ny01ZGRhLTRjZTQtYmJjOS0yY2Y4OTAxNGQ4MWEiLCJlbWFpbCI6InJvZHJpZ29lOTIzQGdtYWlsLmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZW1haWwiLCJwcm92aWRlcnMiOlsiZW1haWwiXX0sInVzZXJfbWV0YWRhdGEiOnt9LCJyb2xlIjoiYXV0aGVudGljYXRlZCIsImFhbCI6ImFhbDEiLCJhbXIiOlt7Im1ldGhvZCI6InBhc3N3b3JkIiwidGltZXN0YW1wIjoxNjgzNTc0MTY1fV0sInNlc3Npb25faWQiOiIyZjYwNDRhNi1mM2FiLTRjNDUtYTRkZi1kNjIxOTZiMmRhOGUifQ.8B9sZA67gyIF1wk8bUJTDqZFGL5uzONC3rcThHYJIrE", "expires_in": 3600, "refresh_token": "qMepbptOBHjK9TkFI1d02w", "token_type": "bearer", "user": {"app_metadata": {"provider": "email", "providers": []}, "aud": "authenticated", "confirmed_at": "2023-04-09T16:44:50.564638Z", "created_at": "2023-04-09T16:44:50.557669Z", "email": "rodrigoe923@gmail.com", "email_confirmed_at": "2023-04-09T16:44:50.564638Z", "id": "5a149277-5dda-4ce4-bbc9-2cf89014d81a", "identities": [[]], "last_sign_in_at": "2023-05-08T19:29:25.627675604Z", "phone": "", "role": "authenticated", "updated_at": "2023-05-08T19:29:25.629403Z", "user_metadata": {}}}
+{
+    "navigation": {
+        "addListener": ["Function addListener"],
+        "canGoBack": ["Function canGoBack"],
+        "dispatch": ["Function dispatch"],
+        "getId": ["Function getId"],
+        "getParent": ["Function getParent"],
+        "getState": ["Function anonymous"],
+        "goBack": ["Function anonymous"],
+        "isFocused": ["Function isFocused"],
+        "navigate": ["Function anonymous"],
+        "pop": ["Function anonymous"],
+        "popToTop": ["Function anonymous"],
+        "push": ["Function anonymous"],
+        "removeListener": ["Function removeListener"],
+        "replace": [""],
+        "reset": ["Function anonymous"],
+        "setOptions": ["Function setOptions"],
+        "setParams": ["Function anonymous"]
+    },
+    "route": {
+        "key": "Notes_Continuation-LbEr9uAal1gwhSlNY49Ky",
+        "name": "Notes_Continuation",
+        "params": {
+            "doctor_name": "joao",
+            "patient_name": "Rodrigo",
+            "procedure": "teste",
+            "time_procedure": "16:00"
+        },
+        "path": "undefined"
+    }
+}

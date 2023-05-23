@@ -23,6 +23,13 @@ export const Home = () => {
                 }}
                 variant="transparent"
             />
+            <Button
+                title="relatorio"
+                onPress={async () => {
+                    navigation.navigate("Relatorio");
+                }}
+                variant="transparent"
+            />
         </Container>
     );
 };

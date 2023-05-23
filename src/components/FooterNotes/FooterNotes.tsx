@@ -1,23 +1,34 @@
 import React from "react";
-import { Container } from "./style";
-import { AntDesign } from "@expo/vector-icons";
-import { Button } from "../Button";
 import { useNavigation } from "@react-navigation/native";
+import { AntDesign } from "@expo/vector-icons";
+import { Container } from "./style";
+import { Button } from "../Button";
 import NotesServices from "../../services/App/Notes/Notes.service";
+import ExportXlsxService from "../../services/App/ExportXlsx/ExportXlsx.service";
 
 interface Notes {
     tab: number;
     notes?: any;
-    isUpdate?: any;
+    isUpdate?: boolean;
+    isRelatorio?: boolean;
+    title?: string;
+    data?: any;
 }
 
-export const FooterNotes = ({ tab, notes, isUpdate }: Notes) => {
+export const FooterNotes = ({
+    tab,
+    notes,
+    isUpdate,
+    isRelatorio,
+    title = "Continuar",
+    data,
+}: Notes) => {
     const navigation = useNavigation();
 
-    const handleNavigationNext = () => {
+    const handleNavigationNext = async () => {
         if (tab == 1) {
             navigation.navigate("Notes_Continuation", notes);
-        } else {
+        } else if (tab == 2) {
             const noteService = new NotesServices();
 
             if (isUpdate) {
@@ -27,16 +38,23 @@ export const FooterNotes = ({ tab, notes, isUpdate }: Notes) => {
             }
 
             navigation.navigate("Home");
+        } else if (isRelatorio) {
+            const exportXls = new ExportXlsxService();
+            await exportXls.generete(data.star, data.end);
+            //navigation.navigate("Home");
         }
     };
 
     const handleNavigationBack = () => {
         if (tab == 2) {
             navigation.navigate("Notes");
-        } else {
+        } else if (tab == 1) {
+            navigation.navigate("Home");
+        } else if (isRelatorio) {
             navigation.navigate("Home");
         }
     };
+
     return (
         <Container>
             <AntDesign
@@ -48,7 +66,7 @@ export const FooterNotes = ({ tab, notes, isUpdate }: Notes) => {
             />
             <Button
                 variant="buttonSm"
-                title="Continuar"
+                title={title}
                 onPress={handleNavigationNext}
             />
         </Container>

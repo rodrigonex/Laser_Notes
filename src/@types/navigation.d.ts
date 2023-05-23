@@ -7,6 +7,7 @@ export declare global {
             Notes: any;
             Notes_Continuation: any;
             Notes_List: any;
+            Relatorio: any;
         }
     }
 }

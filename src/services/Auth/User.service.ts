@@ -24,4 +24,26 @@ export default class User extends DbConnect {
             return "Not authorize";
         }
     }
+
+    async resetPassword(email: string) {
+      try {
+          const response = await axios.post(
+              `${this.supabaseUrl}/auth/v1/recover`,
+              {
+                  email: email,
+              },
+              {
+                  headers: {
+                      apiKey: this.supabaseKey,
+                      "Content-Type": "application/json",
+                  },
+              }
+          );
+          console.log(response);
+          const { data } = response;
+          return data;
+      } catch (error) {
+          return "E-mail not found";
+      }
+  }
 }

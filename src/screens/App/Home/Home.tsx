@@ -2,33 +2,46 @@ import React from "react";
 import { useNavigation } from "@react-navigation/native";
 
 import { Button } from "../../../components/Button";
-import { Container, Text } from "./style";
+
+import {
+    Container,
+    ContainerBody,
+    ContainerHeader,
+    TextHeader,
+    TextBody,
+} from "./style";
 
 export const Home = () => {
     const navigation = useNavigation();
     return (
         <Container>
-            <Text>Home</Text>
+            <ContainerHeader>
+                <TextHeader>Bem-vinda {"\n"}de volta!</TextHeader>
+            </ContainerHeader>
+
             <Button
-                title="Notes List"
-                onPress={async () => {
-                    navigation.navigate("Notes_List");
-                }}
-                variant="transparent"
-            />
-            <Button
-                title="Criar anotação"
-                onPress={async () => {
-                    navigation.navigate("Notes");
-                }}
-                variant="transparent"
-            />
-            <Button
-                title="relatorio"
+                title="Gerar Relatorio"
                 onPress={async () => {
                     navigation.navigate("Relatorio");
                 }}
-                variant="transparent"
+                style={{ marginBottom: 20 }}
+                variant="buttonLg"
+            />
+            <Button
+                title="Editar Anotacao"
+                onPress={async () => {
+                    navigation.navigate("Notes_List");
+                }}
+                style={{ marginBottom: 20 }}
+                variant="buttonLg"
+            />
+            <Button
+                title="Nova Anotacao"
+                onPress={async () => {
+                    navigation.navigate("Notes");
+                }}
+                style={{ marginBottom: 20 }}
+                variant="buttonLg"
             />
         </Container>
     );
